@@ -20,14 +20,25 @@ namespace ADO___DataTables___DataSets__DataAdapter
 
             Employees.Rows.Add("1", "Abubakr Ali", 5000, "Sudan");
             Employees.Rows.Add("2", "Ahmad", 1000, "Jordan");
+            Employees.Rows.Add("3", "Khaled", 3000, "Sudan");
 
             int numberOfEmployees = Employees.Rows.Count;
             double totalSalaries = Convert.ToDouble(Employees.Compute("SUM(Salary)", string.Empty));
             double avgSalaries = Convert.ToDouble(Employees.Compute("AVG(Salary)", string.Empty));
 
-            Console.WriteLine($" Employees Count: {numberOfEmployees}");
+            /*Console.WriteLine($" Employees Count: {numberOfEmployees}");
             Console.WriteLine($"Total Salaryies: {totalSalaries}");
-            Console.WriteLine($"Average Salaryies: {avgSalaries}");
+            Console.WriteLine($"Average Salaryies: {avgSalaries}");*/
+
+            string filterCondition = "Salary >= 1000";
+
+            DataRow[] resultsRow = Employees.Select(filterCondition);
+
+            foreach (DataRow result in resultsRow)
+            {
+                Console.WriteLine($"ID: {result["ID"]}, Name: {result["Name"]}");
+
+            }
         }
     }
 }
