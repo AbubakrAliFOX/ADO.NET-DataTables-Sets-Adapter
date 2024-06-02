@@ -1,0 +1,7 @@
+E:\Downloads\WebDev\Projects\ADO - DataTables - DataSets- DataAdapter\obj\Debug\ADO - DataTables - DataSets- DataAdapter.csproj.AssemblyReference.cache
+E:\Downloads\WebDev\Projects\ADO - DataTables - DataSets- DataAdapter\obj\Debug\ADO - DataTables - DataSets- DataAdapter.csproj.CoreCompileInputs.cache
+E:\Downloads\WebDev\Projects\ADO - DataTables - DataSets- DataAdapter\bin\Debug\ADO - DataTables - DataSets- DataAdapter.exe.config
+E:\Downloads\WebDev\Projects\ADO - DataTables - DataSets- DataAdapter\bin\Debug\ADO - DataTables - DataSets- DataAdapter.exe
+E:\Downloads\WebDev\Projects\ADO - DataTables - DataSets- DataAdapter\bin\Debug\ADO - DataTables - DataSets- DataAdapter.pdb
+E:\Downloads\WebDev\Projects\ADO - DataTables - DataSets- DataAdapter\obj\Debug\ADO - DataTables - DataSets- DataAdapter.exe
+E:\Downloads\WebDev\Projects\ADO - DataTables - DataSets- DataAdapter\obj\Debug\ADO - DataTables - DataSets- DataAdapter.pdb
