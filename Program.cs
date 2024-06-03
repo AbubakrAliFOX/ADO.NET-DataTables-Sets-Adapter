@@ -56,21 +56,44 @@ namespace ADO___DataTables___DataSets__DataAdapter
             Employees.Rows.Add(null, "Ahmad", 1000, "Jordan");
             Employees.Rows.Add(null, "Khaled", 3000, "Sudan");
 
-            int numberOfEmployees = Employees.Rows.Count;
-            double totalSalaries = Convert.ToDouble(Employees.Compute("SUM(Salary)", string.Empty));
-            double avgSalaries = Convert.ToDouble(Employees.Compute("AVG(Salary)", string.Empty));
+            DataTable Departments = new DataTable();
 
-            /*Console.WriteLine($" Employees Count: {numberOfEmployees}");
-            Console.WriteLine($"Total Salaryies: {totalSalaries}");
-            Console.WriteLine($"Average Salaryies: {avgSalaries}");*/
+            dtColoumn = new DataColumn();
+            dtColoumn.ColumnName = "ID";
+            dtColoumn.DataType = typeof(int);
+            dtColoumn.AutoIncrement = true;
+            dtColoumn.ReadOnly = true;
+            dtColoumn.Unique = true;
+            dtColoumn.AutoIncrementSeed = 1;
+            dtColoumn.AutoIncrementStep = 1;
+            Departments.Columns.Add(dtColoumn);
 
-            DataView dtEmpolyees = Employees.DefaultView;
+            dtColoumn = new DataColumn();
+            dtColoumn.ColumnName = "Name";
+            dtColoumn.DataType = typeof(string);
+            dtColoumn.AutoIncrement = false;
+            dtColoumn.ReadOnly = false;
+            dtColoumn.Unique = false;
+            Departments.Columns.Add(dtColoumn);
 
-            dtEmpolyees.Sort = "Name Desc";
+            Departments.Rows.Add(null, "IT");
+            Departments.Rows.Add(null, "Health");
+            Departments.Rows.Add(null, "R&D");
 
-            for (int i = 0; i < dtEmpolyees.Count; i++)
+            
+            DataSet dataSet1 = new DataSet();
+
+            dataSet1.Tables.Add(Employees);
+            dataSet1.Tables.Add(Departments);
+
+            foreach (DataRow row in dataSet1.Tables[0].Rows)
             {
-                Console.WriteLine($"{dtEmpolyees[i][0]}, {dtEmpolyees[i][1]}, {dtEmpolyees[i][2]}, {dtEmpolyees[i][3]}");
+                Console.WriteLine($"{row["Name"]}, {row["Country"]}");
+            }
+
+            foreach (DataRow row in dataSet1.Tables[1].Rows)
+            {
+                Console.WriteLine($"{row["ID"]}, {row["Name"]}");
             }
         }
     }
