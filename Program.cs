@@ -36,7 +36,7 @@ namespace ADO___DataTables___DataSets__DataAdapter
 
             foreach (DataRow row in resultsRow)
             {
-                row.Delete();
+                row["Name"] = "Kaka";
             }
 
             foreach (DataRow row in Employees.Rows)
