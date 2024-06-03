@@ -66,7 +66,7 @@ namespace ADO___DataTables___DataSets__DataAdapter
 
             DataView dtEmpolyees = Employees.DefaultView;
 
-            dtEmpolyees.RowFilter = "Salary >= 3000";
+            dtEmpolyees.Sort = "Name Desc";
 
             for (int i = 0; i < dtEmpolyees.Count; i++)
             {
