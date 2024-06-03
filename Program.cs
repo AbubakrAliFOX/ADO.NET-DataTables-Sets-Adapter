@@ -64,18 +64,13 @@ namespace ADO___DataTables___DataSets__DataAdapter
             Console.WriteLine($"Total Salaryies: {totalSalaries}");
             Console.WriteLine($"Average Salaryies: {avgSalaries}");*/
 
-            string filterCondition = "ID = 1";
+            DataView dtEmpolyees = Employees.DefaultView;
 
-            DataRow[] resultsRow = Employees.Select(filterCondition);
+            dtEmpolyees.RowFilter = "Salary >= 3000";
 
-            foreach (DataRow row in resultsRow)
+            for (int i = 0; i < dtEmpolyees.Count; i++)
             {
-                row["Name"] = "Kaka";
-            }
-
-            foreach (DataRow row in Employees.Rows)
-            {
-                Console.WriteLine($"ID: {row["ID"]}, Name: {row["Name"]}");
+                Console.WriteLine($"{dtEmpolyees[i][0]}, {dtEmpolyees[i][1]}, {dtEmpolyees[i][2]}, {dtEmpolyees[i][3]}");
             }
         }
     }
