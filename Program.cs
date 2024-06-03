@@ -13,14 +13,48 @@ namespace ADO___DataTables___DataSets__DataAdapter
         {
             DataTable Employees = new DataTable();
 
-            Employees.Columns.Add("ID", typeof(int));
+            /* Employees.Columns.Add("ID", typeof(int));
             Employees.Columns.Add("Name", typeof(string));
             Employees.Columns.Add("Salary", typeof(double));
-            Employees.Columns.Add("Country", typeof(string));
+            Employees.Columns.Add("Country", typeof(string)); */
 
-            Employees.Rows.Add("1", "Abubakr Ali", 5000, "Sudan");
-            Employees.Rows.Add("2", "Ahmad", 1000, "Jordan");
-            Employees.Rows.Add("3", "Khaled", 3000, "Sudan");
+            DataColumn dtColoumn = new DataColumn();
+            dtColoumn.ColumnName = "ID";
+            dtColoumn.DataType = typeof(int);
+            dtColoumn.AutoIncrement = true;
+            dtColoumn.ReadOnly = true;
+            dtColoumn.Unique = true;
+            dtColoumn.AutoIncrementSeed = 1;
+            dtColoumn.AutoIncrementStep = 1;
+            Employees.Columns.Add(dtColoumn);
+
+            dtColoumn = new DataColumn();
+            dtColoumn.ColumnName = "Name";
+            dtColoumn.DataType = typeof(string);
+            dtColoumn.AutoIncrement = false;
+            dtColoumn.ReadOnly = false;
+            dtColoumn.Unique = false;
+            Employees.Columns.Add(dtColoumn);
+
+            dtColoumn = new DataColumn();
+            dtColoumn.ColumnName = "Salary";
+            dtColoumn.DataType = typeof(double);
+            dtColoumn.AutoIncrement = false;
+            dtColoumn.ReadOnly = false;
+            dtColoumn.Unique = false;
+            Employees.Columns.Add(dtColoumn);
+
+            dtColoumn = new DataColumn();
+            dtColoumn.ColumnName = "Country";
+            dtColoumn.DataType = typeof(string);
+            dtColoumn.AutoIncrement = false;
+            dtColoumn.ReadOnly = false;
+            dtColoumn.Unique = false;
+            Employees.Columns.Add(dtColoumn);
+
+            Employees.Rows.Add(null, "Abubakr Ali", 5000, "Sudan");
+            Employees.Rows.Add(null, "Ahmad", 1000, "Jordan");
+            Employees.Rows.Add(null, "Khaled", 3000, "Sudan");
 
             int numberOfEmployees = Employees.Rows.Count;
             double totalSalaries = Convert.ToDouble(Employees.Compute("SUM(Salary)", string.Empty));
