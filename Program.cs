@@ -30,14 +30,18 @@ namespace ADO___DataTables___DataSets__DataAdapter
             Console.WriteLine($"Total Salaryies: {totalSalaries}");
             Console.WriteLine($"Average Salaryies: {avgSalaries}");*/
 
-            string filterCondition = "Salary >= 1000";
+            string filterCondition = "ID = 1";
 
             DataRow[] resultsRow = Employees.Select(filterCondition);
 
-            foreach (DataRow result in resultsRow)
+            foreach (DataRow row in resultsRow)
             {
-                Console.WriteLine($"ID: {result["ID"]}, Name: {result["Name"]}");
+                row.Delete();
+            }
 
+            foreach (DataRow row in Employees.Rows)
+            {
+                Console.WriteLine($"ID: {row["ID"]}, Name: {row["Name"]}");
             }
         }
     }
