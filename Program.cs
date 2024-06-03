@@ -11,12 +11,8 @@ namespace ADO___DataTables___DataSets__DataAdapter
     {
         static void Main(string[] args)
         {
-            DataTable Employees = new DataTable();
+            DataTable Employees = new DataTable("Employees");
 
-            /* Employees.Columns.Add("ID", typeof(int));
-            Employees.Columns.Add("Name", typeof(string));
-            Employees.Columns.Add("Salary", typeof(double));
-            Employees.Columns.Add("Country", typeof(string)); */
 
             DataColumn dtColoumn = new DataColumn();
             dtColoumn.ColumnName = "ID";
@@ -56,7 +52,7 @@ namespace ADO___DataTables___DataSets__DataAdapter
             Employees.Rows.Add(null, "Ahmad", 1000, "Jordan");
             Employees.Rows.Add(null, "Khaled", 3000, "Sudan");
 
-            DataTable Departments = new DataTable();
+            DataTable Departments = new DataTable("Departments");
 
             dtColoumn = new DataColumn();
             dtColoumn.ColumnName = "ID";
@@ -86,12 +82,12 @@ namespace ADO___DataTables___DataSets__DataAdapter
             dataSet1.Tables.Add(Employees);
             dataSet1.Tables.Add(Departments);
 
-            foreach (DataRow row in dataSet1.Tables[0].Rows)
+            foreach (DataRow row in dataSet1.Tables["Employees"].Rows)
             {
                 Console.WriteLine($"{row["Name"]}, {row["Country"]}");
             }
 
-            foreach (DataRow row in dataSet1.Tables[1].Rows)
+            foreach (DataRow row in dataSet1.Tables["Departments"].Rows)
             {
                 Console.WriteLine($"{row["ID"]}, {row["Name"]}");
             }
